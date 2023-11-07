@@ -1,7 +1,13 @@
 import React from "react";
+import { useDispatch } from 'react-redux'
+import allActions from '../Redux/Actions';
 import "../Styles/Product.css"
 const Product = ({ data }) => {
+    const dispatch = useDispatch();
     console.log(data)
+    const addToBasket = (val) =>{
+        dispatch(allActions.ProductActions.addProduct(val)) 
+    }
     return (
         <>
             {data.data.map((val,index) => {
@@ -18,7 +24,7 @@ const Product = ({ data }) => {
                             </div>
                         </div>
                         <img src={val.image} alt="productImage"/>
-                        <button>Add To Basket</button>
+                        <button onClick={addToBasket(val)}>Add To Basket</button>
                     </div>)
             })}
 
