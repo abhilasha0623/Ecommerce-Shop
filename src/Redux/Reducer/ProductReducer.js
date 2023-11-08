@@ -12,7 +12,8 @@ const productList = (state = initialState, action) => {
         case type.ADD_PRODUCT:
             return { ...state,  productItems: [...state.productItems, action.payload]}
         case type.REMOVE_PRODUCT:
-            return { ...state, productItems: action.payload }
+            return { ...state,
+                productItems: state.productItems.filter((item, id) => id !== action.payload) }
         default:
             return state
     }

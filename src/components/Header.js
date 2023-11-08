@@ -2,9 +2,13 @@ import React from "react";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
+import {Link} from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "../Styles/Header.css";
 
 const Header = () => {
+    const productList = useSelector(state =>state.productList);
     return (
         <div className="header">
             <div className="header__logo">
@@ -26,8 +30,8 @@ const Header = () => {
                     <span className="nav__itemLineTwo">Shop</span>
                 </div>
                 <div className="nav__item">
-                    <ShoppingBasketIcon className="itemBasket" />
-                    <span className="nav__itemLineTwo nav__basketCount">0</span>
+                   <Link to ="/checkout"><ShoppingBasketIcon className="itemBasket"/></Link> 
+                    <span className="nav__itemLineTwo nav__basketCount">{productList.productItems.length}</span>
                 </div>
             </div>
         </div>
