@@ -13,7 +13,7 @@ const productList = (state = initialState, action) => {
             return { ...state,  productItems: [...state.productItems, action.payload]}
         case type.REMOVE_PRODUCT:
             return { ...state,
-                productItems: state.productItems.filter((item, id) => id !== action.payload) }
+                productItems: state.productItems.filter((item) => item.id !== action.payload) }
         default:
             return state
     }
