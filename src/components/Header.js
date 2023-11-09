@@ -13,7 +13,7 @@ const Header = () => {
         <div className="header">
             <div className="header__logo">
                 <StorefrontIcon className="header__logoImage" fontSize="large" />
-                <h2 className="header__logoTitle">eShop</h2>
+               <Link to ="/"><h2 className="header__logoTitle">eShop</h2></Link> 
             </div>
 
             <div className="header__search">
